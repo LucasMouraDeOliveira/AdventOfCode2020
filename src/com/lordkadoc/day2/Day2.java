@@ -8,7 +8,7 @@ import java.util.List;
 public class Day2 {
 	
 	public static void main(String[] args) throws IOException {
-		File f = new File("resources/star3.txt");
+		File f = new File("resources/input2.txt");
 		List<String> passwords = Files.readAllLines(f.toPath());
 		printStar3Result(passwords);
 		printStar4Result(passwords);

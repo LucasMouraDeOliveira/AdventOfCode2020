@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 public class Day1 {
 	
 	public static void main(String[] args) throws IOException {
-		File f = new File("resources/star1.txt");
-		List<Integer> nbs = Files.readAllLines(f.toPath())
-				.stream().map(Integer::valueOf).collect(Collectors.toList());
+		
+		File f = new File("resources/input1.txt");
+		List<Integer> nbs = Files.readAllLines(f.toPath()).stream().map(Integer::valueOf).collect(Collectors.toList());
 		
 		Integer result1 = star1(nbs);
 		System.out.println("Result star1 = " + result1);
@@ -29,7 +29,6 @@ public class Day1 {
 					continue;
 				int other = nbs.get(j);
 				if(current + other == 2020) {
-					System.out.println(current + " / " + other);
 					return current * other;
 				}
 			}
@@ -49,7 +48,6 @@ public class Day1 {
 						continue;
 					int c = nbs.get(k);
 					if(a + b + c == 2020) {
-						System.out.println(a + " / " + b + " / " + c);
 						return a * b * c;
 					}
 				}
