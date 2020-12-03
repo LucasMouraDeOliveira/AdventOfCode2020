@@ -1,15 +1,13 @@
 package com.lordkadoc.day3;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
 public class Day3 {
 	
-	public static void main(String[] args) throws IOException {
-		File f = new File("resources/input3.txt");
-		List<String> map = Files.readAllLines(f.toPath());
+	public static void main(String[] args) throws Exception {
+		List<String> map = Files.readAllLines(new File("resources/input3.txt").toPath());
 		System.out.println("Result for star 5 is " + count(map, 3, 1));
 		System.out.println("Result for star 6 is " + count(map, 1, 1) * count(map, 3, 1) * count(map, 5, 1) * count(map, 7, 1) * count(map, 1, 2));
 	}

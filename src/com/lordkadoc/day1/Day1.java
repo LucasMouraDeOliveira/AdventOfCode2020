@@ -9,29 +9,17 @@ import java.util.stream.Collectors;
 public class Day1 {
 	
 	public static void main(String[] args) throws IOException {
-		
-		File f = new File("resources/input1.txt");
-		List<Integer> nbs = Files.readAllLines(f.toPath()).stream().map(Integer::valueOf).collect(Collectors.toList());
-		
-		Integer result1 = star1(nbs);
-		System.out.println("Result star1 = " + result1);
-		
-		Integer result2 = star2(nbs);
-		System.out.println("Result star2 = " + result2);
-		
+		List<Integer> nbs = Files.readAllLines(new File("resources/input1.txt").toPath())
+				.stream().map(Integer::valueOf).collect(Collectors.toList());
+		System.out.println("Result star1 = " + star1(nbs));
+		System.out.println("Result star2 = " + star2(nbs));
 	}
 	
 	private static int star1(List<Integer> nbs) {
 		for(int i=0;i<nbs.size();i++) {
 			int current = nbs.get(i);
-			for(int j=0;j<nbs.size();j++) {
-				if(i==j)
-					continue;
-				int other = nbs.get(j);
-				if(current + other == 2020) {
-					return current * other;
-				}
-			}
+			if(nbs.contains(2020 - current))
+				return current * (2020 - current);
 		}
 		return 0;
 	}
